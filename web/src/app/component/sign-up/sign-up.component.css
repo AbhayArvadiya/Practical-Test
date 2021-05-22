@@ -1,0 +1,66 @@
+.frame {
+    box-shadow: 1px 1px 15px rgb(0 0 0 / 22%);
+    background-color: #ffffff;
+    width: 100%;
+    margin-top: 36px;
+    padding: 3% 4% 1% 4%;
+    border-radius: 13px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.form-control {
+    font-weight: bold;
+    border-radius: 0px 5px 5px 0px !important;
+}
+
+.icon {
+    border-radius: 5px 0px 0px 5px;
+    padding: 10px;
+    background: dodgerblue;
+    color: white;
+    min-width: 42px;
+    text-align: center;
+}
+
+.input-container {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+.btn {
+    height: 40px;
+    margin-top: 22px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to left, #6dbaf8, #008cff, #6dbaf8);
+    background-size: 200%;
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.btn:hover {
+    border: none;
+    background-position: right;
+}
+
+.alert {
+    padding: 2px 11px;
+}

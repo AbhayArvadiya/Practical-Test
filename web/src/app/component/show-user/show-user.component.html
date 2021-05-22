@@ -1,0 +1,41 @@
+<br><br><br><br>
+<div class="row ml-1">
+    <div class="card card-container" *ngFor="let items of usersList">
+        <img id="profile-img" [src]="items.profile_image" class="profile-img-card mt-3" />
+        <p class="d-flex user-name mt-3">{{ items.first_name }} {{ items.last_name }}</p>
+        <p class="username"><i class="fas fa-user-tag mr-1"></i> {{ items.username }}</p>
+        <p class="username"><i class="fa fa-envelope mr-1"></i> {{ items.email }}</p>
+
+        <button class="btn" (click)="open(content,items)">Show</button>
+    </div>
+</div>
+
+<ngb-pagination class="d-flex justify-content-center mt-3" [collectionSize]="collectionSize" [pageSize]=pageSize  [(page)]="currentPage" (pageChange)="readUsers($event)">
+</ngb-pagination>
+<!-- --------------------------------------------------------------- -->
+
+<ng-template #content let-modal>
+    <div class="container-fluid main-class">
+
+        <div class="modal-header">
+            <a type="button" class="close" aria-label="Close" (click)="modal.close('Close click')">
+                <span aria-hidden="true">&times;</span>
+            </a>
+        </div>
+
+        <div class="modal-body mt-3">
+            <div class="card-model justify-content-center">
+                <div class="d-flex model-user-name">
+                    <h3 class="mr-2">{{ userData.first_name }}</h3>
+                    <h3>{{ userData.last_name }}</h3>
+                </div>
+                <div class="user-image">
+                    <img [src]="userData.profile_image" class="profile-img-card1" alt="User-Profile-Image">
+                </div>
+                <p class="model-username pt-4"><i class="fas fa-user-tag mr-1"></i>{{ userData.username }}</p>
+                <p class="model-username pt-2"><i class="fas fa-envelope mr-1"></i> {{ userData.email }}</p>
+                <p class="model-username pt-2 pb-3"><i class="fa fa-phone mr-1"></i> {{ userData.phone }}</p>
+            </div>
+        </div>
+    </div>
+</ng-template>

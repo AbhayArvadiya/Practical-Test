@@ -1,0 +1,93 @@
+<br><br><br>
+<div class="ml-5">
+    <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        
+        <div class="frame">
+            <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-group input-container">
+                        <i class="fas fa-user icon"></i>
+                        <input type="text" class="form-control" name="firstName" placeholder="Firts name" [(ngModel)]="form.firstName" required #firstName="ngModel">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="f.submitted && firstName.invalid">
+                        <div *ngIf="firstName.errors?.required">First name is required</div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group input-container">
+                        <i class="fas fa-user icon"></i>
+                        <input type="text" class="form-control" name="lastName" placeholder="Last name" [(ngModel)]="form.lastName" required #lastName="ngModel">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="f.submitted && lastName.invalid">
+                        <div *ngIf="lastName.errors?.required">Last name is required</div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group input-container">
+                        <i class="fa fa-envelope icon"></i>
+                        <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="form.email" required email #email="ngModel">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="f.submitted && email.invalid">
+                        <div *ngIf="email.errors?.required">Email is required</div>
+                        <div *ngIf="email.errors?.email">Email address not valid</div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group input-container">
+                        <i class="fa fa-phone icon"></i>
+                        <input type="text" class="form-control" name="mobileNo" placeholder="Mobile" [(ngModel)]="form.mobileNo" required minlength="10" maxlength="10" #mobileNo="ngModel">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="f.submitted && mobileNo.invalid">
+                        <span *ngIf="mobileNo.errors?.required">Mobile number is required</span>
+                        <span *ngIf="mobileNo.errors?.minlength || mobileNo.errors?.maxlength">Mobile number must be 10 digit</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group input-container">
+                        <i class="fa fa-key icon"></i>
+                        <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="form.password" required minlength="6" #password="ngModel">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="f.submitted && password.invalid">
+                        <span *ngIf="password.errors?.required">Password is required</span>
+                        <span *ngIf="password.errors?.minlength">Password at least 6 characters</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group input-container">
+                        <i class="fa fa-key icon"></i>
+                        <input type="password" class="form-control" name="password" placeholder="Confirm password"  [(ngModel)]="form.confirmPassword" required #confirmPassword="ngModel">
+                    </div>
+                    <div *ngIf="f.submitted && confirmPassword.invalid">
+                        <div class="alert alert-danger" *ngIf="confirmPassword.errors?.required">Confirm password is required</div>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="form.confirmPassword !== form.password" >Password and Confirm password not match</div>
+                </div>
+            </div>
+
+            <div class="col-md-7 container justify-content-center">
+                <button class="btn btn-primary btn-block" [disabled]="form.confirmPassword !== form.password">Sign up</button>
+                <div class="d-flex pt-2">
+                    <p>Already have an account</p> &nbsp;
+                    <a routerLink="">Sign in</a>
+                </div>
+            </div>
+
+            <div class="form-group mb-3 ">
+                <div class="alert alert-danger " role="alert " *ngIf="f.submitted && isSignUpFailed ">
+                    {{ errorMessage }}
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="col-md-7 alert alert-success" *ngIf="isSuccessful">
+    Sign up Successfully!
+</div>

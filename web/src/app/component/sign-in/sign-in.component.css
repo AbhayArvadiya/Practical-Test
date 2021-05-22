@@ -1,0 +1,51 @@
+.card {
+    margin: auto;
+    box-shadow: 1px 1px 15px rgb(0 0 0 / 22%);
+    background-color: #ffffff;
+    width: 100%;
+    margin-top: 36px;
+    padding: 3% 4% 1% 4%;
+    border-radius: 13px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-container.card {
+    max-width: 400px !important;
+    padding: 40px 40px;
+}
+
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.icon {
+    border-radius: 5px 0px 0px 5px;
+    padding: 10px;
+    background: dodgerblue;
+    color: white;
+    min-width: 42px;
+    text-align: center;
+}
+
+.input-container {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    font-weight: bold;
+    border-radius: 0px 5px 5px 0px !important;
+}
+
+.alert {
+    padding: 2px 11px;
+}

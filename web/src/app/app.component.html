@@ -1,0 +1,48 @@
+<div id="app">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <nav class="logo1" *ngIf="!authService.isSignIn()">
+            <a class="navbar-brand logotitle" href="">
+                <img src="../favicon.ico" width="40" height="40" class="d-inline-block " alt="logo not found!"> &nbsp; User Board
+            </a>
+        </nav>
+
+        <ul class="navbar-nav ml-auto" *ngIf="authService.isSignIn()">
+            <li class="nav-item pr-4">
+                <a class="fas fa-user-circle pt-2" style="font-size: 25px; color: black;" routerLink="profile"></a>
+            </li>
+        </ul>
+    </nav>
+
+    <nav class="main-menu" *ngIf='authService.isSignIn()'>
+        <nav class="navbar logo">
+            <a class="navbar-brand logotitle" href="">
+                <img src="../favicon.ico" width="40" height="40" class="d-inline-block " alt="logo not found!"> &nbsp; User Board
+            </a>
+        </nav>
+
+        <!-- -------------------User Board---------------------  -->
+        <ul routerLinkActive="active">
+            <li class="has-subnav">
+                <a routerLink="user-list">
+                    <i class="fa fa-user "></i>
+                    <span class="nav-text">
+                        Users
+                    </span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="logout" *ngIf="authService.isSignIn()">
+            <li>
+              <a href (click)="logout()">
+                    <i class="fa fa-power-off fa-2x"></i>
+                    <span class="nav-text">Logout</span>
+              </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<!-- ----------------All Content------------------- -->
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

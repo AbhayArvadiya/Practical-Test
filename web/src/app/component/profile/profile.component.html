@@ -1,0 +1,25 @@
+<br><br><br><br><br>
+<div class="container" *ngIf="profileData; else loggedOut">
+
+    <div class="card">
+        <div class="card-header">
+            <h2>{{ profileData.user.first_name }}</h2>
+            <h2>{{ profileData.user.last_name }}</h2>
+        </div>
+        <div class="user-image">
+            <img [src]="profileData.user.profile_image" class="profile-img-card" alt="User-Profile-Image">
+        </div>
+        <hr class="mt-4">
+        <p><i class="fas fa-user-tag mr-1"></i>{{ profileData.user.username }}</p>
+        <p><i class="fas fa-envelope"></i> {{ profileData.user.email }}</p>
+        <p><i class="fa fa-phone "></i> {{ profileData.user.phone }}</p>
+
+        <span class="buttonEdit mt-4" routerLink="/edit-profile"> 
+            <i class="fas fa-user-edit "></i>&nbsp;Edit
+        </span>
+    </div>
+</div>
+
+<ng-template #loggedOut>
+    Please login...
+</ng-template>
